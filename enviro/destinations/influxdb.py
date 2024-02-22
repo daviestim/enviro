@@ -36,7 +36,7 @@ def upload_reading(reading):
     timestamp = time.mktime((year, month, day, hour, minute, second, 0, 0))
 
     nickname = reading["nickname"]
-    payload += f"{key},device={nickname} value={value} {timestamp}"
+    payload += f"environment,device={nickname} {key}={value} {timestamp}"
 
   influxdb_token = config.influxdb_token
   headers = {
